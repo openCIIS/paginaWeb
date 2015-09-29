@@ -28,7 +28,7 @@ body{
 #consultas{
 	position: absolute;
 	z-index: 990;
-	background: rgba(247, 152, 51,.5);
+	background: transparent;/*rgba(247, 152, 51,.5);*/
 	border-radius: 5px;
 	right: 5px;
 	top: 5px;
