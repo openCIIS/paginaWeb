@@ -2,11 +2,446 @@
 *{
 	padding: 0;
 	margin: 0;
+	box-sizing: border-box;
 }
 html,body{
 	width: 100%;
 	height: 100%;
 }
 body{
-	background: #03A9F4;
+	background: #242C38;
+}
+#todoMS{
+	width: 100%;
+	height: 100%;
+	font-family: 'Roboto';
+}
+#logo{
+	position: absolute;
+	z-index: 999;
+	width: 150px;
+}
+#logo>img{
+	width: 100%;
+	height: 100%;
+}
+#consultas{
+	position: absolute;
+	z-index: 990;
+	background: rgba(247, 152, 51,.5);
+	border-radius: 5px;
+	right: 5px;
+	top: 5px;
+	padding: 15px 25px;
+	color: #fff;
+	text-align: center;
+	box-shadow: 0 0 10px 2px rgba(0,0,0,.5)
+}
+#consultas>h2{
+	font-family: arial;
+	font-size: 1.7em;
+}
+#consultas>p:nth-of-type(1){
+	font-weight: bold;
+	font-size: 2em;
+	font-family: arial;
+	border-bottom: 1px solid;
+}
+#consultas>p:nth-of-type(2){
+	font-family: calibri;
+	font-size: 1.1em;
+	border-bottom: 1px solid;
+	padding: 5px;
+}
+#menuPrin{
+	margin: auto;
+	position: relative;
+	z-index:999;
+	bottom: 110px;
+	background: rgba(92, 198, 208, 0.6);/*rgba(241, 30, 69, 0.6)*/
+	font-size: 1.2em;
+	font-weight: bold;
+	color: #fff;
+	border-radius: 5px;
+	cursor: pointer;
+	width: 475px;
+	transition: all .5s;
+	-moz-transition: all .5s;
+	-webkit-transition: all .5s;
+	-ms-transition: all .5s;
+}
+#menuPrin a{
+	text-decoration: none;
+	color: #eee;
+	width: 100%;
+	height: 100%;
+}
+#menuPrin:hover{
+	box-shadow: 0 0 15px 2px rgba(255,255,255,.5);
+}
+#menuPrin>li{
+	list-style: none;
+	display: inline-block;
+	margin: 2px;
+	border-right: 2px solid rgba(255,255,255,.5);
+	padding: 10px 15px;
+	text-align: center;
+	border-radius: 5px;
+	margin-left: -4px;
+	transition: all .5s;
+	-moz-transition: all .5s;
+	-webkit-transition: all .5s;
+	-ms-transition: all .5s;
+	position: relative;
+}
+#menuPrin>li:hover{
+	background: rgba(0,0,0,.2);
+}
+#menuPrin>li:first-child{
+	margin-left: 2px;
+}
+#menuPrin>li:last-child{
+	border-right: 0;
+}
+#contentSlider>li{
+	list-style-type: none;
+}
+#sliderShow{
+	width: 100%;
+	height: 100%;
+}
+#cuerpoPag{
+	padding: 10px;
+	padding-top: 25px;
+	color: white;
+	font-family: calibri;
+	text-align: justify;
+}
+#contentSlider{
+	z-index: 500;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background: #FFF;
+	overflow: hidden;
+	border-bottom: 5px solid #4b5973;
+}
+#contentSlider li {
+	display: none;
+}
+
+#contentSlider .Slider{
+	display: block;
+}
+#contentSlider>li{
+	width: 100%;
+	height: 100%;
+	position: relative;
+	font-size: 62.5%;
+}
+#contentSlider img {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+#contentSlider .descripcion{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,0.65);
+	width: 100%;
+	padding: 10px;
+	color: #FFF;
+	-webkit-transform: translateY(100%);
+	-ms-transform: translateY(100%);
+	-o-transform: translateY(100%);
+	transform: translateY(100%);
+	opacity: 0;
+	-webkit-transition: all 0.4s ease;
+	-o-transition: all 0.4s ease;
+	transition: all 0.4s ease;
+}
+#contentSlider li:hover .descripcion{
+	-webkit-transform: translateY(0);
+	-ms-transform: translateY(0);
+	-o-transform: translateY(0);
+	transform: translateY(0);
+	opacity: 1;
+}
+#contentSlider h2 {
+	color: #00c5b9;
+	font-size: 2em;
+	font-weight: 400;
+	margin-bottom: 6px;
+}
+.sliderSombra{
+	width: 100%;
+	height: 15px;
+	position: relative;
+}
+
+.sliderSombra:after, .sliderSombra:before {
+	content: '';
+	position: absolute;
+	background: #171c24;
+	height: 100%;
+	width: 50%;
+	left: 10px;
+	top: -20px;
+	-webkit-transform: rotate(-4deg);
+	-ms-transform: rotate(-4deg);
+	-o-transform: rotate(-4deg);
+	transform: rotate(-4deg);
+	-webkit-box-shadow: 0 0 15px 8px #171c24;
+	box-shadow: 0 0 15px 8px #171c24;
+}
+
+.sliderSombra:before {
+	right: 10px;
+	left: auto;
+	-webkit-transform: rotate(4deg);
+	-ms-transform: rotate(4deg);
+	-o-transform: rotate(4deg);
+	transform: rotate(4deg);
+}
+.control-buttons {
+	text-align: center;
+	z-index: 999;
+	position: absolute;
+	right: 5px;
+	bottom: 15px;
+}
+
+.control-buttons li {
+	cursor: pointer;
+	display: inline-block;
+	background: #424f66;
+	text-indent: -99999px;
+	height: 12px;
+	width: 12px;
+	margin: 0 6px;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+}
+.control-buttons li.active {
+	background: #00c5b9;
+}
+@media only screen and (max-width: 825px) {
+	#sliderShow {
+		width: 100%;
+	}
+
+	#contentSlider{
+		height: 100%;
+	}
+	#contentSlider img{
+		width: 200%;
+	}
+	#consultas{
+		position: absolute;
+		width: 50%;
+		left: 25%;
+		top: 270px;
+	}
+}
+
+@media only screen and (max-width: 535px) {
+	#sliderShow {
+		padding: 5px;
+		width: 100%;
+	}
+
+	#contentSlider{
+		height: 100%;
+	}
+	#contentSlider .descripcion{
+		display: none;
+	}
+	#contentSlider img{
+		width: 200%;
+	}
+	#menuPrin>div{
+		width: 100%;
+		height: 50px;
+		background: rgba(72, 118, 186,.8);
+		border-radius: 5px;
+		position: relative;
+		cursor: default;
+		pointer-events:all;
+	}
+	#menuPrin>div>div{
+		position: absolute;
+		width: 40px;
+		height: 100%;
+		top: 0;
+		left: 5px;
+		cursor: pointer;
+	}
+	#menuPrin>div>div>div:before,
+	#menuPrin>div>div>div:after,
+	#menuPrin>div>div>div{
+		position: absolute;
+		width: 100%;
+		background: #fff;
+		height: 5px;
+		border-radius: 5px;
+	}
+	#menuPrin>div>div>div{
+		top: 7px;
+	}
+	#menuPrin>div>div>div:after{
+		content: '';
+		bottom: -30px;
+	}
+	#menuPrin>div>div>div:before{
+		content: '';
+		bottom: -15px;
+	}
+	#menuPrin{
+		width: 99%;
+		bottom: 280px;
+		position: relative;
+		max-height: 50;
+		overflow: hidden;
+		transition: all .5s;
+		-moz-transition: all .5s;
+		-webkit-transition: all .5s;
+		-ms-transition: all .5s;
+		pointer-events: none;
+	}
+	#menuPrin:hover{
+		box-shadow: 0 0 0 0;
+	}
+	#menuPrin.hidenVe li.hidenM>a,
+	#menuPrin.hidenVe li.hidenM,
+	#menuPrin.hidenVe{
+		color: transparent;
+		background: transparent;
+		pointer-events: none;
+		transition: all .5s;
+		-moz-transition: all .5s;
+		-webkit-transition: all .5s;
+		-ms-transition: all .5s;
+	}
+	#menuPrin.showVe li.showM>a,
+	#menuPrin.showVe>li.showM{
+		color: #eee;
+		pointer-events:all;
+		transition: all .5s;
+		-moz-transition: all .5s;
+		-webkit-transition: all .5s;
+		-ms-transition: all .5s;
+	}
+	#menuPrin.showVe{
+		background: rgba(92, 198, 208, 0.6);
+		pointer-events:all;
+	}
+	#menuPrin>li{
+		display: block;
+		border:0;
+	}
+	#consultas{
+		position: absolute;
+		width: 90%;
+		left: 5%;
+		top: 270px;
+	}
+}
+
+@media only screen and (max-width: 410px) {
+	#contentSlider{
+		height: 100%;
+	}
+	#contentSlider img{
+		width: 200%;
+	}
+	#menuPrin>div{
+		width: 100%;
+		height: 50px;
+		background: rgba(72, 118, 186,.8);
+		border-radius: 5px;
+		position: relative;
+		cursor: default;
+		pointer-events:all;
+	}
+	#menuPrin>div>div{
+		position: absolute;
+		width: 40px;
+		height: 100%;
+		top: 0;
+		left: 5px;
+		cursor: pointer;
+	}
+	#menuPrin>div>div>div:before,
+	#menuPrin>div>div>div:after,
+	#menuPrin>div>div>div{
+		position: absolute;
+		width: 100%;
+		background: #fff;
+		height: 5px;
+		border-radius: 5px;
+	}
+	#menuPrin>div>div>div{
+		top: 7px;
+	}
+	#menuPrin>div>div>div:after{
+		content: '';
+		bottom: -30px;
+	}
+	#menuPrin>div>div>div:before{
+		content: '';
+		bottom: -15px;
+	}
+	#menuPrin{
+		width: 99%;
+		bottom: 280px;
+		position: relative;
+		max-height: 50;
+		overflow: hidden;
+		transition: all .5s;
+		-moz-transition: all .5s;
+		-webkit-transition: all .5s;
+		-ms-transition: all .5s;
+		pointer-events: none;
+	}
+	#menuPrin:hover{
+		box-shadow: 0 0 0 0;
+	}
+	#menuPrin.hidenVe li.hidenM>a,
+	#menuPrin.hidenVe li.hidenM,
+	#menuPrin.hidenVe{
+		color: transparent;
+		background: transparent;
+		pointer-events: none;
+		transition: all .5s;
+		-moz-transition: all .5s;
+		-webkit-transition: all .5s;
+		-ms-transition: all .5s;
+	}
+	#menuPrin.showVe li.showM>a,
+	#menuPrin.showVe>li.showM{
+		color: #eee;
+		pointer-events:all;
+		transition: all .5s;
+		-moz-transition: all .5s;
+		-webkit-transition: all .5s;
+		-ms-transition: all .5s;
+	}
+	#menuPrin.showVe{
+		background: rgba(92, 198, 208, 0.6);
+		pointer-events:all;
+	}
+	#menuPrin>li{
+		display: block;
+		border:0;
+	}
+	#consultas{
+		position: absolute;
+		width: 98%;
+		left: 1%;
+		top: 270px;
+	}
 }
