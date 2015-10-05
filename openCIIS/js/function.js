@@ -20,27 +20,24 @@ window.onload=function(){
 	 		estado=0;
 	 	}
 	 });
+	 informe=$("#consultas");
+	 resize();
+	 window.addEventListener("resize",resize,true);
 	 var SliderModule = (function() {
 	 	var pb = {};
 	 	pb.el = $('#sliderShow');
 	 	pb.items = {
 	 		panels: pb.el.find('#contentSlider > li'),
 	 	}
-
-	 	// Interval del Slider
 	 	var SliderInterval,
 	 		currentSlider = 0,
 	 		nextSlider = 1,
 	 		lengthSlider = pb.items.panels.length;
-
-	 	// Constructor del Slider
 	 	pb.init = function(settings) {
 	 		this.settings = settings || {duration: 8000};
 	 		var items = this.items,
 	 			lengthPanels = items.panels.length,
 	 			output = '';
-
-	 		// Insertamos nuestros botones
 	 		for(var i = 0; i < lengthPanels; i++) {
 	 			if(i == 0) {
 	 				output += '<li class="active"></li>';
@@ -50,10 +47,7 @@ window.onload=function(){
 	 		}
 
 	 		$('#control-buttons').html(output);
-
-	 		// Activamos nuestro Slider
 	 		activateSlider();
-	 		// Eventos para los controles
 	 		$('#control-buttons').on('click', 'li', function(e) {
 	 			var $this = $(this);
 	 			if(!(currentSlider === $this.index())) {
@@ -101,5 +95,27 @@ window.onload=function(){
 	 }());
 
 	 SliderModule.init({duration: 20000});
-
+	jQuery(document).ready(function($) {
+		$(".animarScroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+}
+function resize(){
+	var tag=document.getElementById('consultas');
+ 	var tamInfo=(informe[0].offsetWidth);
+ 	var tamWin=(document.documentElement.offsetWidth);
+ 	var newPos=(tamWin-tamInfo)/2;
+ 	if(document.documentElement.offsetWidth<=800){
+ 		tag.style.left="";
+ 	}
+ 	else{
+ 		if(newPos<0){
+	 		newPos=0;
+	 	}
+		newPos=newPos+"px";
+		tag.style.left=newPos;
+		newPos=0;
+	}
 }

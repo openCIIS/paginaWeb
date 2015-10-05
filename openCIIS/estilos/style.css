@@ -26,16 +26,26 @@ body{
 	height: 100%;
 }
 #consultas{
+	width: 320px;
 	position: absolute;
 	z-index: 990;
-	background: #F98B68;/*rgba(247, 152, 51,.5);*/
 	border-radius: 0 0 0 5px;
-	right: 0;
-	top: 0;
+	right: 37%;
+	top: 250px;
 	padding: 50px 30px;
 	color: #fff;
 	text-align: center;
-	box-shadow: 0 0 10px 2px rgba(0,0,0,.5)
+	border: 2px double #eee;
+	background: rgba(255,255,255,.2);
+	transition: all .5s;
+	-moz-transition: all .5s;
+	-webkit-transition: all .5s;
+	-ms-transition: all .5s;
+}
+#consultas:hover{
+	box-shadow: 0 0 15px 2px rgba(40, 187, 173,.4);
+	border-color: rgb(40, 187, 173);
+	background: rgba(40, 187, 173,.4);
 }
 #consultas>h2{
 	font-family: arial;
@@ -49,7 +59,7 @@ body{
 }
 #consultas>p:nth-of-type(2){
 	font-family: calibri;
-	font-size: 1.1em;
+	font-size: 1em;
 	border-bottom: 1px solid;
 	padding: 5px;
 }
@@ -57,7 +67,7 @@ body{
 	margin: auto;
 	position: relative;
 	z-index:999;
-	bottom: 400px;
+	bottom: 150px;
 	padding: 5px 0;
 	/*background: rgba(92, 198, 208, 0.6);/*rgba(241, 30, 69, 0.6)*/
 	font-size: 1.2em;
@@ -131,17 +141,22 @@ body{
 	height: 150px;
 	left: 0;
 	top:0;
-	background: rgba(117, 196, 165, 0.6);
+	background: rgba(255,255,255,.5);
+	/*background: url('../img/presentacion/f4.jpg') 100% 100% / 100% 110% no-repeat;*/
+	opacity: .9;
 	pointer-events: none;
-	color: rgba(52, 60, 69,.8);
+	color: #fff;/*rgba(52, 60, 69,.8);*/
 	font-size: 5em;
 	font-family: Oswald, sans-serif;
 	font-weight: bold;
 	text-shadow: 1px 1px 1px rgb(255,255,255),
-		2px 2px 5px rgb(52, 60, 69);
+		2px 2px 5px #eee,
+		3px 3px 5px #eee,
+		4px 4px 5px #00e,
+		5px 5px 5px #f0f;
 	text-align: center;
-	line-height: 1.9;
-	border-bottom: 10px solid rgb(52, 60, 69);
+	line-height: 3.8;
+	border-bottom: 10px solid rgba(255,255,255,1);
 	/*box-shadow: 0 5px 10px 5px rgba(255, 0, 0, 0.68);*/
 }
 #cuerpoPag{
@@ -210,6 +225,79 @@ body{
 	font-weight: 400;
 	margin-bottom: 6px;
 }
+#masInfo{
+	height: 300px;
+	background: rgba(255,255,255,.5);
+	border-top: 10px solid rgb(75, 89, 115);
+	box-shadow: 0 0 10px 2px rgb(0, 0, 0);
+	background: #eee;
+	position: relative;
+	overflow: hidden;
+	text-align: center;
+	box-sizing: border-box;
+}
+#masInfo>#grupoConf{
+	position: absolute;
+	padding: 5px;
+	width: 500px;
+	right:0;
+	height: 100%;
+	border-left: 2px solid rgb(40, 187, 173);
+	margin: 5px 0;
+	box-sizing: border-box;
+}
+#masInfo>#grupoConf a{
+	border-radius: 50%;
+}
+#masInfo>#grupoConf p,
+#masInfo>#grupoConf a ~ p{
+	color: white;
+	position: absolute;
+	background: rgba(249, 139, 104,.8);
+	z-index: 9;
+	left: -5px;
+	top: 0%;
+	padding: 5px;
+	border-radius: 5px;
+	font-weight: bold;
+	opacity: 0;
+	pointer-events: none;
+	transition: all 1s;
+	-moz-transition: all 1s;
+	-webkit-transition: all 1s;
+	-ms-transition: all 1s;
+}
+#masInfo>#grupoConf a:hover ~ p{
+	opacity: 1;
+	top: 90%;
+}
+#masInfo>#grupoConf h2{
+	color: rgb(0, 197, 185);
+}
+#masInfo>#grupoConf span{
+	color: rgb(249, 139, 104);
+}
+#masInfo>#grupoConf img{
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	border: 2px solid rgb(0, 197, 185);
+	box-shadow: 0 0 0 2px rgba(255,255,255,.5);
+	transition: all 1s;
+	-moz-transition: all 1s;
+	-webkit-transition: all 1s;
+	-ms-transition: all 1s;
+}
+#masInfo>#grupoConf img:hover{
+	transform: scale(1.4);
+}
+#masInfo>#grupoConf li{
+	display: inline-block;
+	position: relative;
+	margin: 5px;
+	padding-bottom: 5px;
+	border-bottom: 2px solid rgba(0,0,0,.5)
+}
 .sliderSombra{
 	width: 100%;
 	height: 15px;
@@ -263,6 +351,9 @@ body{
 .control-buttons li.active {
 	background: #00c5b9;
 }
+.clear{
+	clear: both;
+}
 @media only screen and (max-width: 825px) {
 	#sliderShow {
 		width: 100%;
@@ -285,6 +376,9 @@ body{
 		width: 50%;
 		left: 25%;
 		top: 270px;
+		background: rgba(40, 187, 173,.5);
+		border: 0;
+		box-shadow: 0 0 5px 2px rgba(40, 187, 173,.5);
 	}
 }
 
@@ -303,6 +397,8 @@ body{
 	}
 	#sliderShow:after{
 		text-align: right;
+		line-height: 2.5;
+		font-size: 3.8em;
 	}
 	#menuPrin>div{
 		width: 100%;
@@ -492,5 +588,10 @@ body{
 		width: 98%;
 		left: 1%;
 		top: 270px;
+	}
+}
+@media only screen and (max-height: 660px){
+	#sliderShow{
+		height: 660px;
 	}
 }
