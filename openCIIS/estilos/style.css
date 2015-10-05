@@ -28,11 +28,11 @@ body{
 #consultas{
 	position: absolute;
 	z-index: 990;
-	background: transparent;/*rgba(247, 152, 51,.5);*/
-	border-radius: 5px;
-	right: 5px;
-	top: 5px;
-	padding: 15px 25px;
+	background: #F98B68;/*rgba(247, 152, 51,.5);*/
+	border-radius: 0 0 0 5px;
+	right: 0;
+	top: 0;
+	padding: 50px 30px;
 	color: #fff;
 	text-align: center;
 	box-shadow: 0 0 10px 2px rgba(0,0,0,.5)
@@ -57,33 +57,48 @@ body{
 	margin: auto;
 	position: relative;
 	z-index:999;
-	bottom: 110px;
-	background: rgba(92, 198, 208, 0.6);/*rgba(241, 30, 69, 0.6)*/
+	bottom: 400px;
+	padding: 5px 0;
+	/*background: rgba(92, 198, 208, 0.6);/*rgba(241, 30, 69, 0.6)*/
 	font-size: 1.2em;
 	font-weight: bold;
 	color: #fff;
-	border-radius: 5px;
 	cursor: pointer;
-	width: 475px;
+	width: 680px;
 	transition: all .5s;
 	-moz-transition: all .5s;
 	-webkit-transition: all .5s;
 	-ms-transition: all .5s;
+	text-align: center;
+	border-top: 5px solid rgb(249, 139, 104);
+	border-bottom: 5px solid rgb(40, 187, 173);
 }
 #menuPrin a{
 	text-decoration: none;
 	color: #eee;
 	width: 100%;
 	height: 100%;
+	transition: all .5s;
+	-moz-transition: all .5s;
+	-webkit-transition: all .5s;
+	-ms-transition: all .5s;
 }
-#menuPrin:hover{
-	box-shadow: 0 0 15px 2px rgba(255,255,255,.5);
+#menuPrin>li:hover{
+	box-shadow: 0 0 15px 2px rgba(40, 187, 173,.4);/*rgba(255,255,255,.5);*/
+	border-color: rgb(40, 187, 173);
+	background: rgba(40, 187, 173,.4);
 }
 #menuPrin>li{
 	list-style: none;
 	display: inline-block;
 	margin: 2px;
-	border-right: 2px solid rgba(255,255,255,.5);
+	background: rgba(0,0,0,0.5);
+	border-radius: 5px;
+	border: 2px solid rgba(255,255,255,.5);/*
+	border-bottom: 2px solid rgb(249, 139, 104);
+	border-top: 2px solid rgb(72, 118, 186);
+	border-left: 2px solid rgb(40, 187, 173);
+	border-right: 2px solid rgb(223, 182, 178);*/
 	padding: 10px 15px;
 	text-align: center;
 	border-radius: 5px;
@@ -93,9 +108,7 @@ body{
 	-webkit-transition: all .5s;
 	-ms-transition: all .5s;
 	position: relative;
-}
-#menuPrin>li:hover{
-	background: rgba(0,0,0,.2);
+	font-size: 1.5em;
 }
 #menuPrin>li:first-child{
 	margin-left: 2px;
@@ -110,6 +123,27 @@ body{
 	width: 100%;
 	height: 100%;
 }
+#sliderShow:after{
+	content: 'openCIIS';
+	position: absolute;
+	z-index: 980;
+	width: 100%;
+	height: 150px;
+	left: 0;
+	top:0;
+	background: rgba(117, 196, 165, 0.6);
+	pointer-events: none;
+	color: rgba(52, 60, 69,.8);
+	font-size: 5em;
+	font-family: Oswald, sans-serif;
+	font-weight: bold;
+	text-shadow: 1px 1px 1px rgb(255,255,255),
+		2px 2px 5px rgb(52, 60, 69);
+	text-align: center;
+	line-height: 1.9;
+	border-bottom: 10px solid rgb(52, 60, 69);
+	/*box-shadow: 0 5px 10px 5px rgba(255, 0, 0, 0.68);*/
+}
 #cuerpoPag{
 	padding: 10px;
 	padding-top: 25px;
@@ -122,7 +156,7 @@ body{
 	position: relative;
 	width: 100%;
 	height: 100%;
-	background: #FFF;
+	background: rgb(20, 23, 26);
 	overflow: hidden;
 	border-bottom: 5px solid #4b5973;
 }
@@ -219,8 +253,8 @@ body{
 	display: inline-block;
 	background: #424f66;
 	text-indent: -99999px;
-	height: 12px;
-	width: 12px;
+	height: 20px;
+	width: 20px;
 	margin: 0 6px;
 	-webkit-border-radius: 50%;
 	-moz-border-radius: 50%;
@@ -233,7 +267,13 @@ body{
 	#sliderShow {
 		width: 100%;
 	}
-
+	#menuPrin{
+		border: 0;
+		width: 100%;
+		text-align: center;
+		font-size: .9em;
+		bottom: 150px;
+	}
 	#contentSlider{
 		height: 100%;
 	}
@@ -250,10 +290,8 @@ body{
 
 @media only screen and (max-width: 535px) {
 	#sliderShow {
-		padding: 5px;
 		width: 100%;
 	}
-
 	#contentSlider{
 		height: 100%;
 	}
@@ -262,6 +300,9 @@ body{
 	}
 	#contentSlider img{
 		width: 200%;
+	}
+	#sliderShow:after{
+		text-align: right;
 	}
 	#menuPrin>div{
 		width: 100%;
@@ -288,6 +329,7 @@ body{
 		background: #fff;
 		height: 5px;
 		border-radius: 5px;
+		left: 0;
 	}
 	#menuPrin>div>div>div{
 		top: 7px;
@@ -301,8 +343,9 @@ body{
 		bottom: -15px;
 	}
 	#menuPrin{
+		padding: 0;
 		width: 99%;
-		bottom: 280px;
+		bottom: 290px;
 		position: relative;
 		max-height: 50;
 		overflow: hidden;
@@ -342,6 +385,7 @@ body{
 	#menuPrin>li{
 		display: block;
 		border:0;
+		background: transparent;
 	}
 	#consultas{
 		position: absolute;
@@ -367,6 +411,10 @@ body{
 		cursor: default;
 		pointer-events:all;
 	}
+	#sliderShow:after{
+		font-size: 3.3em;
+		line-height: 3
+	}
 	#menuPrin>div>div{
 		position: absolute;
 		width: 40px;
@@ -383,6 +431,7 @@ body{
 		background: #fff;
 		height: 5px;
 		border-radius: 5px;
+		left: 0;
 	}
 	#menuPrin>div>div>div{
 		top: 7px;
